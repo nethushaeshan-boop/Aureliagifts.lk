@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Gifts | Thoughtful Gifts, Beautiful Memories</title>
+  <meta name="description" content="Aurelia Gifts creates elegant wedding gift bags and thoughtful gifts for beautiful celebrations.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+    :root{
+      --ivory:#fbf6ef;
+      --cream:#f3e8db;
+      --champagne:#c7a77a;
+      --rose:#cda79b;
+      --ink:#302b28;
+      --muted:#766d67;
+      --white:#fffdf9;
+      --line:rgba(110,85,62,.18);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--ivory);color:var(--ink);
+      font-family:Montserrat,Arial,sans-serif;line-height:1.7;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:10;background:rgba(251,246,239,.94);
+      backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+    }
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-family:"Cormorant Garamond",serif;font-size:29px;letter-spacing:2px}
+    .brand img{width:50px;height:50px;object-fit:cover;border-radius:50%}
+    .links{display:flex;gap:28px;font-size:13px;text-transform:uppercase;letter-spacing:1.4px}
+    .links a:hover{color:#a88457}
+    .menu{display:none;background:none;border:0;font-size:26px}
+    .hero{padding:82px 0 74px;min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
+    .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#9a7851;font-weight:600}
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600;line-height:1.05}
+    h1{font-size:clamp(58px,8vw,94px);margin:18px 0}
+    h1 span{color:#a88457}
+    .hero p{max-width:570px;color:var(--muted);font-size:16px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:14px 24px;border:1px solid #b99668;text-transform:uppercase;letter-spacing:1.4px;font-size:11px;font-weight:600;transition:.25s}
+    .btn.primary{background:#b99668;color:white}
+    .btn:hover{transform:translateY(-2px);opacity:.9}
+    .hero-art{background:var(--cream);padding:25px;position:relative;box-shadow:0 25px 60px rgba(92,65,38,.09)}
+    .hero-art img{width:100%;display:block}
+    .section{padding:90px 0}
+    .section.alt{background:#f5ede4}
+    .heading{text-align:center;max-width:680px;margin:0 auto 45px}
+    .heading h2{font-size:55px;margin:10px 0 14px}
+    .heading p{color:var(--muted);margin:0}
+    .collections{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:var(--white);border:1px solid var(--line);padding:35px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;transition:.25s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(70,45,25,.08)}
+    .card .num{font-family:"Cormorant Garamond";font-size:44px;color:#c6a477}
+    .card h3{font-size:31px;margin:8px 0}
+    .card p{color:var(--muted);font-size:13px;margin:0}
+    .story{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+    .story img{width:100%;background:var(--cream);padding:16px}
+    .story h2{font-size:58px;margin:12px 0 20px}
+    .story p{color:var(--muted)}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;text-align:center}
+    .feature{padding:28px 16px;border-top:1px solid var(--line)}
+    .feature strong{display:block;font-family:"Cormorant Garamond";font-size:27px}
+    .feature span{font-size:11px;color:var(--muted);letter-spacing:.5px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+    .contact h2{font-size:58px;margin:10px 0}
+    form{display:grid;gap:13px}
+    input,textarea{width:100%;border:1px solid var(--line);background:var(--white);padding:15px;font:inherit;color:var(--ink)}
+    textarea{min-height:130px;resize:vertical}
+    footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
+    .goldline{width:70px;height:1px;background:#b99668;margin:20px auto}
+    @media(max-width:800px){
+      .links{display:none}.menu{display:block}
+      .hero,.story,.contact{grid-template-columns:1fr}
+      .hero{padding-top:55px}.hero-art{order:-1}
+      .collections{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .heading h2,.story h2,.contact h2{font-size:45px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#home"><img src="logo.jpg" alt="Aurelia Gifts logo"><span>AURELIA</span></a>
+      <div class="links">
+        <a href="#home">Home</a><a href="#collections">Collections</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="container hero" id="home">
+  <div>
+    <div class="eyebrow">Thoughtful gifts • Beautiful memories</div>
+    <h1>Gifts made for <span>beautiful</span> moments.</h1>
+    <p>Elegant wedding gift bags and carefully presented gifts, created to make every celebration feel a little more special.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#collections">Explore Collection</a>
+      <a class="btn" href="#contact">Make an Enquiry</a>
+    </div>
+  </div>
+  <div class="hero-art"><img src="logo.jpg" alt="Aurelia Gifts signature gift design"></div>
+</section>
+
+<section class="section alt" id="collections">
+  <div class="container">
+    <div class="heading">
+      <div class="eyebrow">Our collections</div>
+      <h2>Made to be remembered</h2>
+      <p>Discover elegant gift ideas for weddings, guests, loved ones and life's most meaningful celebrations.</p>
+    </div>
+    <div class="collections">
+      <article class="card"><div class="num">01</div><h3>Wedding Gift Bags</h3><p>Beautifully presented bags designed for memorable wedding celebrations.</p></article>
+      <article class="card"><div class="num">02</div><h3>Guest Gifts</h3><p>Thoughtful little details to make every guest feel appreciated.</p></article>
+      <article class="card"><div class="num">03</div><h3>Custom Gifts</h3><p>Personal touches and presentation tailored to your special occasion.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container story">
+    <img src="logo.jpg" alt="Aurelia Gifts branding">
+    <div>
+      <div class="eyebrow">The Aurelia touch</div>
+      <h2>Thoughtful gifts. Beautiful memories.</h2>
+      <p>Aurelia Gifts is an online gifting business focused on elegant presentation and meaningful details. We believe a gift should feel special before it is even opened.</p>
+      <p>From wedding celebrations to personalized surprises, every order is prepared with care and a refined, luxurious touch.</p>
+      <a class="btn" href="#contact">Talk to Aurelia Gifts</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="features">
+      <div class="feature"><strong>Elegant</strong><span>Luxury-inspired presentation</span></div>
+      <div class="feature"><strong>Thoughtful</strong><span>Details made with care</span></div>
+      <div class="feature"><strong>Personal</strong><span>Options for your occasion</span></div>
+      <div class="feature"><strong>Online</strong><span>Simple enquiry & ordering</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact">
+    <div>
+      <div class="eyebrow">Let's create something special</div>
+      <h2>Plan your perfect gift.</h2>
+      <p>Tell us what you are looking for, your event date, and any customization ideas. We'll get back to you with the details.</p>
+      <p><strong>Instagram:</strong> Add your Instagram handle here</p>
+      <p><strong>WhatsApp:</strong> Add your WhatsApp number here</p>
+    </div>
+    <form onsubmit="sendMessage(event)">
+      <input id="name" placeholder="Your name" required>
+      <input id="email" type="email" placeholder="Email address" required>
+      <input id="event" placeholder="Event / occasion">
+      <textarea id="message" placeholder="Tell us what you need..." required></textarea>
+      <button class="btn primary" type="submit">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Aurelia Gifts · Thoughtful Gifts, Beautiful Memories</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const links=document.querySelector('.links');
+  links.style.display = links.style.display==='flex' ? 'none' : 'flex';
+  links.style.position='absolute'; links.style.top='78px'; links.style.left='0'; links.style.right='0';
+  links.style.padding='20px'; links.style.background='var(--ivory)'; links.style.flexDirection='column';
+}
+function sendMessage(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const eventName=document.getElementById('event').value;
+  const message=document.getElementById('message').value;
+  const text=`Hello Aurelia Gifts!%0A%0AName: ${encodeURIComponent(name)}%0AEvent: ${encodeURIComponent(eventName)}%0ARequest: ${encodeURIComponent(message)}`;
+  alert('Your enquiry form is ready. Connect this button to your WhatsApp number or email before publishing.');
+}
+</script>
+</body>
+</html>
