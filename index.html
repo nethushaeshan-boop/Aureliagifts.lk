@@ -53,12 +53,15 @@
     .heading{text-align:center;max-width:680px;margin:0 auto 45px}
     .heading h2{font-size:55px;margin:10px 0 14px}
     .heading p{color:var(--muted);margin:0}
-    .collections{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .collections{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .card{background:var(--white);border:1px solid var(--line);padding:35px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;transition:.25s}
     .card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(70,45,25,.08)}
     .card .num{font-family:"Cormorant Garamond";font-size:44px;color:#c6a477}
     .card h3{font-size:31px;margin:8px 0}
     .card p{color:var(--muted);font-size:13px;margin:0}
+    .card-link{display:inline-block;margin-top:18px;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:#9a7851;font-weight:600}
+    .card-link:hover{text-decoration:underline}
+    .card.create{background:#f8f0e7}
     .story{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
     .story img{width:100%;background:var(--cream);padding:16px}
     .story h2{font-size:58px;margin:12px 0 20px}
@@ -74,6 +77,30 @@
     textarea{min-height:130px;resize:vertical}
     footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
     .goldline{width:70px;height:1px;background:#b99668;margin:20px auto}
+
+    .social-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .social-link{
+      display:inline-flex;align-items:center;gap:9px;padding:11px 16px;
+      border:1px solid var(--line);background:var(--white);
+      font-size:11px;text-transform:uppercase;letter-spacing:1.1px;font-weight:600;
+      transition:.25s
+    }
+    .social-link:hover{transform:translateY(-2px);border-color:#b99668;box-shadow:0 10px 25px rgba(70,45,25,.07)}
+    .social-icon{font-size:15px;line-height:1}
+    .whatsapp-float{
+      position:fixed;right:22px;bottom:22px;z-index:20;
+      display:flex;align-items:center;gap:9px;padding:13px 17px;
+      background:#b99668;color:#fff;border-radius:999px;
+      box-shadow:0 12px 30px rgba(70,45,25,.18);
+      font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600;
+      transition:.25s
+    }
+    .whatsapp-float:hover{transform:translateY(-3px);opacity:.92}
+    @media(max-width:800px){
+      .whatsapp-float{right:14px;bottom:14px;padding:12px 15px}
+    }
+
+    @media(max-width:1050px){.collections{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:800px){
       .links{display:none}.menu{display:block}
       .hero,.story,.contact{grid-template-columns:1fr}
@@ -82,6 +109,30 @@
       .features{grid-template-columns:repeat(2,1fr)}
       .heading h2,.story h2,.contact h2{font-size:45px}
     }
+
+    button,select{font:inherit}button,a,select{touch-action:manipulation}
+    button{cursor:pointer} :focus-visible{outline:3px solid #846337;outline-offset:4px}
+    .product-card{padding:0;overflow:hidden;display:block;text-align:left;color:inherit;width:100%;font:inherit;cursor:pointer}
+    .product-photo{display:block;position:relative;aspect-ratio:447/684;overflow:hidden;background:var(--cream)}
+    .product-photo img{position:absolute;width:343.625%;max-width:none;height:auto;top:-22.66%;left:-4.47%}
+    .product-photo.classic img{left:-111.41%}.product-photo.luxe img{left:-214.32%}
+    .product-photo.custom{display:flex;align-items:center;aspect-ratio:447/684;background:#f6eee3}
+    .product-photo.custom img{position:absolute;width:209.7%;max-width:none;height:auto;left:-106.02%;top:-123.17%}
+    .custom-photo-window{display:block;position:relative;overflow:hidden;width:100%;aspect-ratio:598/505}
+    .product-copy{display:block;padding:24px 20px}.product-copy h3{font-size:30px}.product-price{display:block;color:#78582f;font-weight:600;margin:12px 0 0;font-size:14px}
+    .photo-note{text-align:center;font-size:12px;color:var(--muted);margin-top:22px}
+    dialog{width:min(900px,94vw);max-height:90vh;border:1px solid var(--line);padding:0;background:var(--ivory);color:var(--ink);overflow:auto}
+    dialog::backdrop{background:rgba(40,30,23,.65)}
+    .dialog-close{position:sticky;top:10px;float:right;margin:10px 12px 0 0;z-index:2;border:1px solid var(--line);background:var(--white);border-radius:50%;width:42px;height:42px;font-size:25px}
+    .detail-layout{clear:both;display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;padding:8px 30px 30px;align-items:start}
+    .detail-layout h2{font-size:46px;margin:0 0 12px}.detail-price{font-size:22px;color:#78582f;margin:0 0 18px}
+    .detail-layout ul{padding-left:20px;font-size:14px}.detail-layout h3{font-size:25px;margin:20px 0 8px}
+    .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:block;font-size:12px;font-weight:600;margin-top:12px}.field select,.field input,.field textarea{display:block;margin-top:6px;font-size:14px;font-weight:400;width:100%;padding:11px;border:1px solid var(--line);background:var(--white);border-radius:0}
+    .detail-whatsapp{display:block;text-align:center;margin-top:22px}.detail-note{font-size:12px;color:var(--muted)}
+    body.modal-open{overflow:hidden}[hidden]{display:none!important}
+    @media(max-width:800px){.collections{grid-template-columns:repeat(2,minmax(0,1fr))}.product-copy{padding:16px}.product-copy h3{font-size:26px}.detail-layout{grid-template-columns:1fr;padding:8px 20px 24px}.detail-layout>.product-photo{width:min(260px,100%);margin:auto}.links.is-open{display:flex;position:absolute;top:78px;left:0;right:0;padding:20px;background:var(--ivory);flex-direction:column}.detail-layout h2{font-size:38px}}
+    @media(max-width:460px){.collections{grid-template-columns:1fr}.options-grid{grid-template-columns:1fr}.product-photo{aspect-ratio:447/684}.product-copy h3{font-size:32px}}
   </style>
 </head>
 <body>
@@ -92,7 +143,7 @@
       <div class="links">
         <a href="#home">Home</a><a href="#collections">Collections</a><a href="#about">About</a><a href="#contact">Contact</a>
       </div>
-      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <button class="menu" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
     </nav>
   </div>
 </header>
@@ -118,11 +169,7 @@
       <h2>Made to be remembered</h2>
       <p>Discover elegant gift ideas for weddings, guests, loved ones and life's most meaningful celebrations.</p>
     </div>
-    <div class="collections">
-      <article class="card"><div class="num">01</div><h3>Wedding Gift Bags</h3><p>Beautifully presented bags designed for memorable wedding celebrations.</p></article>
-      <article class="card"><div class="num">02</div><h3>Guest Gifts</h3><p>Thoughtful little details to make every guest feel appreciated.</p></article>
-      <article class="card"><div class="num">03</div><h3>Custom Gifts</h3><p>Personal touches and presentation tailored to your special occasion.</p></article>
-    </div>
+    <div class="collections"><button type="button" class="card product-card" data-product="mini" aria-haspopup="dialog" aria-controls="product-dialog"><span class="product-photo mini"><img src="collection-preview.png" alt="Mini gift bag concept" loading="lazy"></span><span class="product-copy"><h3>Mini</h3><span>A thoughtful little favour with a personalised chocolate.</span><span class="product-price">LKR 200</span><span class="card-link">View items & customise →</span></span></button><button type="button" class="card product-card" data-product="classic" aria-haspopup="dialog" aria-controls="product-dialog"><span class="product-photo classic"><img src="collection-preview.png" alt="Classic gift bag concept" loading="lazy"></span><span class="product-copy"><h3>Classic</h3><span>A candle, perfume and your choice of a mint or chocolate tube.</span><span class="product-price">LKR 250</span><span class="card-link">View items & customise →</span></span></button><button type="button" class="card product-card" data-product="luxe" aria-haspopup="dialog" aria-controls="product-dialog"><span class="product-photo luxe"><img src="collection-preview.png" alt="Luxe gift bag concept" loading="lazy"></span><span class="product-copy"><h3>Luxe</h3><span>Scented details and your choice of two treat tubes.</span><span class="product-price">LKR 450</span><span class="card-link">View items & customise →</span></span></button><button type="button" class="card product-card" data-product="custom" aria-haspopup="dialog" aria-controls="product-dialog"><span class="product-photo custom"><span class="custom-photo-window"><img src="custom-bag-reference.png" alt="Empty organza gift bag with ribbons, tags and gift items to choose from" loading="lazy"></span></span><span class="product-copy"><h3>Create Your Own Bag</h3><span>Choose your own items and finishing touches.</span><span class="product-price">Price on request</span><span class="card-link">Customise your bag →</span></span></button></div><p class="photo-note">Illustrative product images. Names and wedding dates shown are examples. Every bag includes your personalised outside tag.</p>
   </div>
 </section>
 
@@ -156,8 +203,19 @@
       <div class="eyebrow">Let's create something special</div>
       <h2>Plan your perfect gift.</h2>
       <p>Tell us what you are looking for, your event date, and any customization ideas. We'll get back to you with the details.</p>
-      <p><strong>Instagram:</strong> Add your Instagram handle here</p>
-      <p><strong>WhatsApp:</strong> Add your WhatsApp number here</p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/aurelia__memento/" target="_blank" rel="noopener noreferrer">@aurelia__memento</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/94774436970" target="_blank" rel="noopener noreferrer">+94 77 443 6970</a></p>
+      <div class="social-links" aria-label="Aurelia Gifts social links">
+        <a class="social-link" href="https://www.instagram.com/aurelia__memento/" target="_blank" rel="noopener noreferrer" aria-label="Open Aurelia Gifts on Instagram">
+          <span class="social-icon">◎</span> Instagram
+        </a>
+        <a class="social-link" href="https://www.tiktok.com/@aureliamemento" target="_blank" rel="noopener noreferrer" aria-label="Open Aurelia Gifts on TikTok">
+          <span class="social-icon">♪</span> TikTok
+        </a>
+        <a class="social-link" href="https://wa.me/94774436970" target="_blank" rel="noopener noreferrer" aria-label="Chat with Aurelia Gifts on WhatsApp">
+          <span class="social-icon">◔</span> WhatsApp
+        </a>
+      </div>
     </div>
     <form onsubmit="sendMessage(event)">
       <input id="name" placeholder="Your name" required>
@@ -174,21 +232,98 @@
   <div class="container">© 2026 Aurelia Gifts · Thoughtful Gifts, Beautiful Memories</div>
 </footer>
 
+
+<dialog id="product-dialog" aria-labelledby="detail-title">
+  <button type="button" class="dialog-close" aria-label="Close bag details">×</button>
+  <div class="detail-layout">
+    <div id="detail-photo" class="product-photo"><img src="collection-preview.png" alt=""></div>
+    <div>
+      <div class="eyebrow">Made for your celebration</div>
+      <h2 id="detail-title"></h2><p id="detail-price" class="detail-price"></p>
+      <p id="custom-intro" hidden>Create your own gift bag with the items you love. Tell us what you have in mind and chat with us on WhatsApp for options and a personalised price.</p>
+      <div id="included"><h3>What’s inside</h3><ul id="detail-items"></ul></div>
+      <p class="detail-note">Every bag includes an outside tag printed with the couple’s names and wedding date.</p>
+      <label class="field" id="filling-field" hidden>Treat option<select id="filling"></select></label>
+      <h3>Make it yours</h3>
+      <div class="options-grid">
+        <label class="field">Preferred bag colour<input id="bag-colour" placeholder="e.g. Ivory, blush pink, white"></label>
+        <label class="field">Preferred tag shape<select id="tag-shape"><option value="">Choose a shape</option><option>Rectangle</option><option>Round</option><option>Heart</option><option>Arch</option><option>Other — describe below</option></select></label>
+        <label class="field">Couple’s names<input id="couple-names" placeholder="Names for your tag"></label>
+        <label class="field">Wedding date<input id="wedding-date" type="date"></label>
+      </div>
+      <label class="field" id="custom-items-field" hidden>Your chosen items<textarea id="custom-items" placeholder="Tell us which items you would like in your bag"></textarea></label>
+      <label class="field">Other requests<textarea id="bag-notes" placeholder="Quantity, tag details or any special requests"></textarea></label>
+      <p class="detail-note">Share your preferences with us. We’ll confirm available colours, tag shapes and any price changes on WhatsApp.</p>
+      <a id="bag-whatsapp" class="btn primary detail-whatsapp" href="https://wa.me/94774436970" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp ↗</a>
+    </div>
+  </div>
+</dialog>
+
 <script>
 function toggleMenu(){
-  const links=document.querySelector('.links');
-  links.style.display = links.style.display==='flex' ? 'none' : 'flex';
-  links.style.position='absolute'; links.style.top='78px'; links.style.left='0'; links.style.right='0';
-  links.style.padding='20px'; links.style.background='var(--ivory)'; links.style.flexDirection='column';
+  const open=document.querySelector('.links').classList.toggle('is-open');
+  document.querySelector('.menu').setAttribute('aria-expanded',String(open));
 }
+document.querySelectorAll('.links a').forEach(link=>link.addEventListener('click',()=>{document.querySelector('.links').classList.remove('is-open');document.querySelector('.menu').setAttribute('aria-expanded','false');}));
 function sendMessage(e){
   e.preventDefault();
-  const name=document.getElementById('name').value;
-  const eventName=document.getElementById('event').value;
-  const message=document.getElementById('message').value;
-  const text=`Hello Aurelia Gifts!%0A%0AName: ${encodeURIComponent(name)}%0AEvent: ${encodeURIComponent(eventName)}%0ARequest: ${encodeURIComponent(message)}`;
-  alert('Your enquiry form is ready. Connect this button to your WhatsApp number or email before publishing.');
+  const name=document.getElementById('name').value.trim();
+  const eventName=document.getElementById('event').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const text =
+    `Hello Aurelia Gifts!\n\n` +
+    `Name: ${name}\n` +
+    `Email: ${document.getElementById('email').value.trim()}\n` +
+    `Event: ${eventName || 'Not specified'}\n` +
+    `Request: ${message}`;
+  const whatsappUrl = `https://wa.me/94774436970?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 }
+
+const products={
+ mini:{name:'Mini',price:200,items:['Dried flowers','10 ml perfume in a slim spray bottle','Chocolate piece with the couple’s initials printed on the wrapper']},
+ classic:{name:'Classic',price:250,items:['Dried flowers','10 ml perfume in a slim spray bottle','Tealight candle','One corked glass tube: mints or chocolate','Thank-you card'],choices:['Mints','Chocolate']},
+ luxe:{name:'Luxe',price:450,items:['Dried flowers','Perfume in a slim spray bottle','Scented tealight candle','Choose one pair of tubes: plums & almonds OR white & dark chocolate chips','Thank-you card'],choices:['Plums & almonds','White & dark chocolate chips']},
+ custom:{name:'Create Your Own Bag',items:[]}
+};
+const productDialog=document.getElementById('product-dialog');
+let activeProduct='mini';
+const fieldValue=id=>document.getElementById(id).value.trim();
+function updateBagLink(){
+ const p=products[activeProduct];
+ const lines=['Hello Aurelia Gifts!','I’m interested in '+p.name+'.',p.price?'Listed bag price: LKR '+p.price:'Please send me a quote for my custom bag.'];
+ for(const [label,id] of [['Treat option','filling'],['Bag colour','bag-colour'],['Tag shape','tag-shape'],['Couple’s names','couple-names'],['Wedding date','wedding-date'],['Chosen items','custom-items'],['Other requests','bag-notes']]){
+  if(id==='filling'&&!p.choices||id==='custom-items'&&activeProduct!=='custom')continue;
+  if(fieldValue(id))lines.push(label+': '+fieldValue(id));
+ }
+ lines.push('Please confirm availability and the final price.');
+ document.getElementById('bag-whatsapp').href='https://wa.me/94774436970?text='+encodeURIComponent(lines.join('\n'));
+}
+document.querySelectorAll('[data-product]').forEach(button=>button.addEventListener('click',()=>{
+ activeProduct=button.dataset.product;const p=products[activeProduct];
+ document.getElementById('detail-title').textContent=p.name;
+ document.getElementById('detail-price').textContent=p.price?'LKR '+p.price+' per bag':'Price on request';
+ const photo=document.getElementById('detail-photo');photo.className='product-photo '+activeProduct;const detailImage=document.createElement('img');detailImage.src=activeProduct==='custom'?'custom-bag-reference.png':'collection-preview.png';detailImage.alt=activeProduct==='custom'?'Empty organza gift bag with ribbons, tags and gift items to choose from':p.name+' illustrative gift bag';if(activeProduct==='custom'){const frame=document.createElement('span');frame.className='custom-photo-window';frame.append(detailImage);photo.replaceChildren(frame);}else{photo.replaceChildren(detailImage);}
+ document.getElementById('detail-items').replaceChildren(...p.items.map(item=>{const li=document.createElement('li');li.textContent=item;return li;}));
+ document.getElementById('included').hidden=activeProduct==='custom';
+ document.getElementById('custom-intro').hidden=activeProduct!=='custom';
+ document.getElementById('custom-items-field').hidden=activeProduct!=='custom';
+ document.getElementById('filling-field').hidden=!p.choices;
+ document.getElementById('filling').replaceChildren(...(p.choices||[]).map(choice=>new Option(choice,choice)));
+ document.getElementById('bag-whatsapp').textContent=activeProduct==='custom'?'Discuss your custom bag on WhatsApp ↗':'Enquire on WhatsApp ↗';
+ updateBagLink();productDialog.showModal();productDialog.scrollTop=0;document.body.classList.add('modal-open');
+}));
+productDialog.addEventListener('input',updateBagLink);
+productDialog.addEventListener('change',updateBagLink);
+productDialog.querySelector('.dialog-close').addEventListener('click',()=>productDialog.close());
+productDialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));
+productDialog.addEventListener('click',e=>{if(e.target===productDialog){const r=productDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)productDialog.close();}});
+
 </script>
+
+<a class="whatsapp-float" href="https://wa.me/94774436970" target="_blank" rel="noopener noreferrer" aria-label="Chat with Aurelia Gifts on WhatsApp">
+  <span class="social-icon">◔</span> Chat on WhatsApp
+</a>
+
 </body>
 </html>
